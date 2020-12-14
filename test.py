@@ -4,7 +4,7 @@ import time
 import random
 
 emoticons = " [怒][怒] "
-append_tag = " #抵制肖战上我们的歌# "
+append_tag = " #肖战发文告别王牌部队# "
 write_set_sentence = list()
 write_set_tag = list()
 
