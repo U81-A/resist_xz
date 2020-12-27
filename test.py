@@ -4,7 +4,6 @@ import time
 import random
 
 emoticons = " [怒][怒] "
-# append_tag = " #抵制肖战上星光大赏# "
 append_tag = " #肖战甩笔# "
 write_set_sentence = list()
 write_set_tag = list()
@@ -23,8 +22,8 @@ def write_data():
         sentence_index = random.randint(0, len(write_set_sentence) - 1)
         clipboard_string += write_set_sentence[sentence_index].replace("\n", "")
     clipboard_string += emoticons
-    clipboard_string += append_tag
-    clipboard_string += emoticons
+    # clipboard_string += append_tag
+    # clipboard_string += emoticons
 
     pyperclip.copy(clipboard_string)
 
