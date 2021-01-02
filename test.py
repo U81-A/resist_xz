@@ -25,7 +25,7 @@ def write_data():
     clipboard_string += emoticons
     clipboard_string += append_tag
     clipboard_string += emoticons
-    clipboard_string += append_at
+    # clipboard_string += append_at
 
     pyperclip.copy(clipboard_string)
 
@@ -89,6 +89,6 @@ if __name__ == '__main__':
             for i in range(consecutive_counter):
                 print("output round: ", i)
                 write_data()
-                time.sleep(2)
+                time.sleep(1.5)
         else:
             print("wrong input")
