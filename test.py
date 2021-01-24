@@ -5,7 +5,7 @@ import random
 
 emoticons = " [怒][怒] "
 append_tag = " #gucci变tucci# "
-append_at = " @GUCCI "
+append_at = " @李宁 @李宁官方微博 "
 write_set_sentence = list()
 write_set_tag = list()
 
@@ -22,10 +22,10 @@ def write_data():
     for i in range(sentence_counter):
         sentence_index = random.randint(0, len(write_set_sentence) - 1)
         clipboard_string += write_set_sentence[sentence_index].replace("\n", "")
+    # clipboard_string += emoticons
+    # clipboard_string += append_tag
     clipboard_string += emoticons
-    clipboard_string += append_tag
-    clipboard_string += emoticons
-    # clipboard_string += append_at
+    clipboard_string += append_at
 
     pyperclip.copy(clipboard_string)
 
@@ -89,6 +89,6 @@ if __name__ == '__main__':
             for i in range(consecutive_counter):
                 print("output round: ", i)
                 write_data()
-                time.sleep(1.5)
+                time.sleep(1.8)
         else:
             print("wrong input")
