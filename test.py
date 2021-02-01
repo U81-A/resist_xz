@@ -5,12 +5,14 @@ import random
 
 emoticons = " [怒][怒] "
 append_tag = " #gucci变tucci# "
-append_at = " @李宁 @李宁官方微博 "
+append_at = " @李宁官方微博 "
 write_set_sentence = list()
 write_set_tag = list()
+write_set_atID = list()
 
 tag_counter = 2
 sentence_counter = 3
+
 
 def write_data():
     clipboard_string = ""
@@ -25,7 +27,8 @@ def write_data():
     # clipboard_string += emoticons
     # clipboard_string += append_tag
     clipboard_string += emoticons
-    clipboard_string += append_at
+    atID_index = random.randint(0, len(write_set_atID) - 1)
+    clipboard_string += write_set_atID[atID_index].replace("\n", "")
 
     pyperclip.copy(clipboard_string)
 
@@ -65,12 +68,15 @@ def read_data():
 
 
 if __name__ == '__main__':
+    print("data loading... ")
     # global write_set_sentence ,write_set_tag
     with open("sentence.txt", "r") as reader:
         write_set_sentence = reader.readlines()
     with open("tag.txt", "r") as reader:
         write_set_tag = reader.readlines()
-    print("end")
+    with open("authenticatedID.txt", "r") as reader:
+        write_set_atID = reader.readlines()
+    print("load success")
     while 1:
         action = input("actions: [r]ead, [w]rite, [c]onsecutive, or [q]uit:\n")
         if action == 'q':
@@ -89,6 +95,6 @@ if __name__ == '__main__':
             for i in range(consecutive_counter):
                 print("output round: ", i)
                 write_data()
-                time.sleep(1.8)
+                time.sleep(4)
         else:
             print("wrong input")
