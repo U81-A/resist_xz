@@ -4,7 +4,7 @@ import time
 import random
 
 emoticons = " [怒][怒] "
-append_tag = " #gucci变tucci# "
+append_tag = " #斗罗大陆央视开播# "
 append_at = " @李宁官方微博 "
 write_set_sentence = list()
 write_set_tag = list()
@@ -13,10 +13,11 @@ write_set_atID = list()
 tag_counter = 2
 sentence_counter = 3
 
-
 def write_data():
     clipboard_string = ""
     random.seed(int(time.time()))
+    # clipboard_string += append_tag
+    # clipboard_string += emoticons
     for i in range(tag_counter):
         tag_index = random.randint(0, len(write_set_tag) - 1)
         clipboard_string += write_set_tag[tag_index].replace("\n", " ")
@@ -31,6 +32,21 @@ def write_data():
     clipboard_string += write_set_atID[atID_index].replace("\n", "")
 
     pyperclip.copy(clipboard_string)
+
+
+def sort_ID():
+    ID_set = set()
+    with open("authenticatedID_test.txt", "r") as reader:
+        line_list = reader.readlines()
+    for line in line_list:
+        line = line.replace("\'", "")
+        # line = line.replace("\n", "")
+        ID_set.add(line)
+    reader.close()
+    with open("ID.txt", "w") as writer:
+        writer.writelines(list(ID_set))
+    writer.close()
+
 
 
 def read_data():
@@ -74,11 +90,11 @@ if __name__ == '__main__':
         write_set_sentence = reader.readlines()
     with open("tag.txt", "r") as reader:
         write_set_tag = reader.readlines()
-    with open("authenticatedID.txt", "r") as reader:
+    with open("authenticatedID_test.txt", "r") as reader:
         write_set_atID = reader.readlines()
     print("load success")
     while 1:
-        action = input("actions: [r]ead, [w]rite, [c]onsecutive, or [q]uit:\n")
+        action = input("actions: [r]ead, [w]rite, [c]onsecutive, [s]ort or [q]uit:\n")
         if action == 'q':
             print("thanks for using, boycott XZ together~")
             break
@@ -95,6 +111,8 @@ if __name__ == '__main__':
             for i in range(consecutive_counter):
                 print("output round: ", i)
                 write_data()
-                time.sleep(4)
+                time.sleep(2)
+        elif action == 's':
+            sort_ID()
         else:
             print("wrong input")
