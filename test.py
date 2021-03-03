@@ -4,7 +4,7 @@ import time
 import random
 
 emoticons = " [怒][怒] "
-append_tag = " #斗罗大陆央视开播# "
+append_tag = " #陌森代言人肖战竖中指# "
 append_at = " @李宁官方微博 "
 write_set_sentence = list()
 write_set_tag = list()
@@ -18,10 +18,12 @@ def write_data():
     random.seed(int(time.time()))
     # clipboard_string += append_tag
     # clipboard_string += emoticons
+    clipboard_string += append_tag
     for i in range(tag_counter):
         tag_index = random.randint(0, len(write_set_tag) - 1)
         clipboard_string += write_set_tag[tag_index].replace("\n", " ")
         clipboard_string += emoticons
+        break
     for i in range(sentence_counter):
         sentence_index = random.randint(0, len(write_set_sentence) - 1)
         clipboard_string += write_set_sentence[sentence_index].replace("\n", "")
