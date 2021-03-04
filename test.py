@@ -5,7 +5,7 @@ import random
 
 emoticons = " [怒][怒] "
 append_tag = " #陌森代言人肖战竖中指# "
-append_at = " @李宁官方微博 "
+append_at = " @MOLSION陌森眼镜 "
 write_set_sentence = list()
 write_set_tag = list()
 write_set_atID = list()
@@ -19,6 +19,7 @@ def write_data():
     # clipboard_string += append_tag
     # clipboard_string += emoticons
     clipboard_string += append_tag
+    clipboard_string += emoticons
     for i in range(tag_counter):
         tag_index = random.randint(0, len(write_set_tag) - 1)
         clipboard_string += write_set_tag[tag_index].replace("\n", " ")
@@ -32,6 +33,8 @@ def write_data():
     clipboard_string += emoticons
     atID_index = random.randint(0, len(write_set_atID) - 1)
     clipboard_string += write_set_atID[atID_index].replace("\n", "")
+    clipboard_string += emoticons
+    clipboard_string += append_at
 
     pyperclip.copy(clipboard_string)
 
