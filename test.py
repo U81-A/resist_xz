@@ -13,6 +13,13 @@ write_set_atID = list()
 tag_counter = 2
 sentence_counter = 3
 
+def create_txt():
+    sentence_set = set()
+
+    with open("不糊不走不死不休.txt", "w") as writer:
+        writer.writelines(list(sentence_set))
+    writer.close() 
+
 def write_data():
     clipboard_string = ""
     random.seed(int(time.time()))
@@ -99,7 +106,7 @@ if __name__ == '__main__':
         write_set_atID = reader.readlines()
     print("load success")
     while 1:
-        action = input("actions: [r]ead, [w]rite, [c]onsecutive, [s]ort or [q]uit:\n")
+        action = input("actions: [r]ead, [w]rite, [c]onsecutive, [s]ort, [t]xt file creation or [q]uit:\n")
         if action == 'q':
             print("thanks for using, boycott XZ together~")
             break
@@ -119,5 +126,7 @@ if __name__ == '__main__':
                 time.sleep(2)
         elif action == 's':
             sort_ID()
+        elif action == 't':
+            create_txt()
         else:
             print("wrong input")
