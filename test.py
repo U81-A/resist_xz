@@ -12,13 +12,64 @@ write_set_atID = list()
 
 tag_counter = 2
 sentence_counter = 3
+txt_counter = 30
+
 
 def create_txt():
     sentence_set = set()
-
-    with open("不糊不走不死不休.txt", "w") as writer:
+    for i in range(txt_counter):
+        txt_string = write_data() + "\n"
+        sentence_set.add(txt_string)
+        print(txt_string)
+        print("add", i)
+        time.sleep(1)
+    with open("不糊不走不死不休1.txt", "w") as writer:
         writer.writelines(list(sentence_set))
-    writer.close() 
+    writer.close()
+
+    sentence_set = set()
+    for i in range(txt_counter):
+        txt_string = write_data() + "\n"
+        sentence_set.add(txt_string)
+        print(txt_string)
+        print("add", i)
+        time.sleep(1)
+    with open("不糊不走不死不休2.txt", "w") as writer:
+        writer.writelines(list(sentence_set))
+    writer.close()
+
+    sentence_set = set()
+    for i in range(txt_counter):
+        txt_string = write_data() + "\n"
+        sentence_set.add(txt_string)
+        print(txt_string)
+        print("add", i)
+        time.sleep(1)
+    with open("不糊不走不死不休3.txt", "w") as writer:
+        writer.writelines(list(sentence_set))
+    writer.close()
+
+    sentence_set = set()
+    for i in range(txt_counter):
+        txt_string = write_data() + "\n"
+        sentence_set.add(txt_string)
+        print(txt_string)
+        print("add", i)
+        time.sleep(1)
+    with open("不糊不走不死不休4.txt", "w") as writer:
+        writer.writelines(list(sentence_set))
+    writer.close()
+
+    sentence_set = set()
+    for i in range(txt_counter):
+        txt_string = write_data() + "\n"
+        sentence_set.add(txt_string)
+        print(txt_string)
+        print("add", i)
+        time.sleep(1)
+    with open("不糊不走不死不休5.txt", "w") as writer:
+        writer.writelines(list(sentence_set))
+    writer.close()
 
 def write_data():
     clipboard_string = ""
@@ -34,7 +85,8 @@ def write_data():
         break
     for i in range(sentence_counter):
         sentence_index = random.randint(0, len(write_set_sentence) - 1)
-        clipboard_string += write_set_sentence[sentence_index].replace("\n", "")
+        clipboard_string += write_set_sentence[sentence_index].replace(
+            "\n", "")
     # clipboard_string += emoticons
     # clipboard_string += append_tag
     clipboard_string += emoticons
@@ -43,7 +95,7 @@ def write_data():
     clipboard_string += emoticons
     clipboard_string += append_at
 
-    pyperclip.copy(clipboard_string)
+    return clipboard_string
 
 
 def sort_ID():
@@ -58,7 +110,6 @@ def sort_ID():
     with open("ID.txt", "w") as writer:
         writer.writelines(list(ID_set))
     writer.close()
-
 
 
 def read_data():
@@ -106,7 +157,8 @@ if __name__ == '__main__':
         write_set_atID = reader.readlines()
     print("load success")
     while 1:
-        action = input("actions: [r]ead, [w]rite, [c]onsecutive, [s]ort, [t]xt file creation or [q]uit:\n")
+        action = input(
+            "actions: [r]ead, [w]rite, [c]onsecutive, [s]ort, [t]xt file creation or [q]uit:\n")
         if action == 'q':
             print("thanks for using, boycott XZ together~")
             break
@@ -122,7 +174,8 @@ if __name__ == '__main__':
             # consecutive_counter = 4
             for i in range(consecutive_counter):
                 print("output round: ", i)
-                write_data()
+                clip_string = write_data()
+                pyperclip.copy(clip_string)
                 time.sleep(2)
         elif action == 's':
             sort_ID()
